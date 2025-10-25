@@ -1,0 +1,66 @@
+\chapter{Resultados e Discussão}
+\label{cap:Resultados}
+
+Neste capítulo devem ser exibidos e discutidos os resultados obtidos pela sua pesquisa.
+
+
+\section{Descrição dos achados}
+\label{sec:Descricao}
+
+Trata-se da apresentação dos dados com base em três recursos:
+    
+\begin{itemize}
+    \item Tabelas
+    \item Gráficos
+    \item Textos explicativos
+\end{itemize}
+    
+Nem todos os resultados merecem aparecer no capítulo de resultados. Apresente somente os mais relevantes, pensando em manter o leitor informado sobre o que interessa --- e sem perder o foco do que interessa. Deixe de fora, por exemplo, resultados relativos à interminável série de tentativas de parametrização das redes neurais.
+
+
+\section{Discussão}
+\label{sec:Discussao}
+
+Discutir os resultados significa, essencialmente, chamar a atenção para aqueles que sejam os mais importantes na sua pesquisa. Há duas formas básicas de se fazer isso:
+    
+\begin{enumerate}
+    \item Você pode contrastar diferentes resultados alcançados pelo uso de diferentes modelos, por exemplo. 
+    
+    \item Comparar seus resultados com os de outras publicações. Use tabelas para facilitar a comparação e coloque os números do estado da arte em negrito. É preciso expor as possíveis razões da diferença: os outros autores usaram outros modelos? Outros dados?
+\end{enumerate}
+
+
+\section{Figuras e tabelas}
+
+Vale a pena refrescar a memória sobre como trabalhar com figuras e tabelas no \LaTeX{}.
+
+Sobre as figuras, embora o \LaTeX{} seja muito versátil na geração de desenhos vetoriais, não vamos tratar disso aqui. Você pode procurar saber mais a respeito procurando no Google ou na Wikibooks pelo pacote \textit{TikZ}.
+
+As figuras de que vamos falar são arquivos externos incorporados ao documento. Os gráficos para apresentação de resultados são figuras desse tipo. É simples incorporar figuras ao texto. Elas devem ser incluídas em ambientes \textit{Figure}:
+
+\begin{figure}[ht] % [ht] é a ordem de localização: primeiro "aqui" (here), e, se não der certo, no alto da página (top)
+    \centering
+    \includegraphics[width=0.4\linewidth]{./figuras/latex-logo.png}
+    \caption{Logo oficial do \LaTeX{}.}
+    \label{fig:logo}
+\end{figure}
+
+
+As tabelas serão feitas em duas etapas. A primeira é a criação de um ambiente de tabulações, \textit{tabular}, que cria os espaçamentos entre as células. A segunda é a colocação do \textit{tabular} num ambiente \textit{table}, que é flutuante, assim como o ambiente \textit{figure} --- ou seja, ele escolhe a melhor posição na página para não atrapalhar o fluxo de texto.
+
+\begin{table}[ht]
+\centering
+
+\begin{tabular}{|l|c|c|}  % Alinhamento das células e desenho das linhas verticais
+\hline  % Desenha uma linha horizontal
+\textbf{Cabeçalho 1} & \textbf{Cab. 2} & \textbf{Cab. 3} \\
+\hline\hline
+Linha 1 & Coluna 1 & Coluna 2 \\
+\hline
+Linha 2 & Coluna 1 & Coluna 2 \\
+\hline
+\end{tabular}
+
+\caption{Um exemplo de tabela.}
+\label{tab:exemplo}
+\end{table}
