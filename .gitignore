@@ -1,4 +1,6 @@
-model/data
+model/data/bets.csv
+model/data/data.zip
+model/data/games.csv
 
 
 # Byte-compiled / optimized / DLL files
