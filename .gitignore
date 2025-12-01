@@ -1,7 +1,8 @@
 model/data/bets.csv
 model/data/data.zip
 model/data/games.csv
-
+model/train_ds.parquet
+model/data/bets.parquet
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -210,4 +211,4 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-model/train_ds.parquet
+

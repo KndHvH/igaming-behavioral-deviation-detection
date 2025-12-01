@@ -12,5 +12,4 @@ dependencies = [
     "pyarrow>=22.0.0",
     "fastparquet>=2024.11.0",
     "pingouin>=0.5.5",
-    "hdbscan>=0.8.40",
 ]
