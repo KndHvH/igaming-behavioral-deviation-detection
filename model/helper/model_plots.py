@@ -17,9 +17,9 @@ def plot_bets_analisys(df):
 
     fig, axs = plt.subplots(4, 2, figsize=(14, 14))
 
-    axs[0,1].hist(df['bet_risk'], bins=50, color="steelblue", alpha=0.8)
-    axs[0,1].set_title('Distribuição de bet_risk_median por aposta')
-    axs[0,1].set_xlabel('bet_risk_median')
+    axs[0,1].hist(df['fiat_bet_amount'], bins=50, color="steelblue", alpha=0.8 , range=(df['fiat_bet_amount'].quantile(0.00), df['fiat_bet_amount'].quantile(0.95)))
+    axs[0,1].set_title('Distribuição de fiat_bet_amount por aposta p95')
+    axs[0,1].set_xlabel('fiat_bet_amount')
     axs[0,1].set_ylabel('Nº de apostas')
 
     axs[0,0].hist(df['odds_adjusted'], bins=50, color="orange", alpha=0.8, range=(df['odds_adjusted'].quantile(0.00), df['odds_adjusted'].quantile(0.99)))
