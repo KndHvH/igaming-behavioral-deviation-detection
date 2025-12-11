@@ -353,6 +353,7 @@ def plot_cluster_feature_comparisons(
     window: str = "2d",          # "2d", "7d", "14d"
     stat: str = "mean",          # "mean" ou "std"
     cluster_col: str = "cluster_label"
+    save_path: str = None
 ):
 
     feature_cols = {}
@@ -398,6 +399,8 @@ def plot_cluster_feature_comparisons(
 
     fig.suptitle(f"Comparação de clusters - {stat}_{window}", fontsize=16, y=1.02)
     plt.tight_layout()
+    if save_path:
+        plt.savefig(save_path)
     plt.show()
 
 def plot_user_vs_clusters(
