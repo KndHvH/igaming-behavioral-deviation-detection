@@ -490,7 +490,7 @@ def plot_user_daily(
     ncols = 1
     nrows = math.ceil(n_feats / ncols)
 
-    fig, axes = plt.subplots(nrows, ncols, figsize=(8 * ncols, 3 * nrows))
+    fig, axes = plt.subplots(nrows, ncols, figsize=(10, 3 * nrows))
     axes = np.array(axes).reshape(-1)
 
     x = tmp[date_col]
@@ -512,7 +512,6 @@ def plot_user_daily(
     plt.tight_layout()
     plt.show()
 
-
 def plot_user_day_hourly(
     df,
     user_id,
@@ -529,7 +528,7 @@ def plot_user_day_hourly(
         tmp.groupby(hour_col)
         .agg(
             odds_adjusted_mean=("odds_adjusted", "mean"),
-            bet_risk_mean=("bet_risk", "mean"),
+            # bet_risk_mean=("bet_risk", "mean"),
             user_bet_amount_proportion_mean=("user_bet_amount_proportion", "mean"),
             fiat_bet_amount_mean=("fiat_bet_amount", "mean"),
             n_bets=("bet_id", "count"),
@@ -539,8 +538,10 @@ def plot_user_day_hourly(
     )
 
     x = agg.index
+    
 
-    fig, axes = plt.subplots(3, 2, figsize=(10, 8))
+
+    fig, axes = plt.subplots(5, 1, figsize=(10, 3 * 5))
     axes = axes.ravel()
 
     axes[0].plot(x, agg["n_bets"], marker="o")
@@ -558,20 +559,20 @@ def plot_user_day_hourly(
     axes[2].set_xlabel("hora")
     axes[2].set_ylabel("odds_adjusted_mean")
 
-    axes[3].plot(x, agg["bet_risk_mean"], marker="o")
-    axes[3].set_title("bet_risk (média por hora)")
+    # axes[3].plot(x, agg["bet_risk_mean"], marker="o")
+    # axes[3].set_title("bet_risk (média por hora)")
+    # axes[3].set_xlabel("hora")
+    # axes[3].set_ylabel("bet_risk_mean")
+
+    axes[3].plot(x, agg["user_bet_amount_proportion_mean"], marker="o")
+    axes[3].set_title("user_bet_amount_proportion (média por hora)")
     axes[3].set_xlabel("hora")
-    axes[3].set_ylabel("bet_risk_mean")
+    axes[3].set_ylabel("user_bet_amount_proportion_mean")
 
-    axes[4].plot(x, agg["user_bet_amount_proportion_mean"], marker="o")
-    axes[4].set_title("user_bet_amount_proportion (média por hora)")
+    axes[4].plot(x, agg["fiat_bet_amount_mean"], marker="o")
+    axes[4].set_title("fiat_bet_amount (média por hora)")
     axes[4].set_xlabel("hora")
-    axes[4].set_ylabel("user_bet_amount_proportion_mean")
-
-    axes[5].plot(x, agg["fiat_bet_amount_mean"], marker="o")
-    axes[5].set_title("fiat_bet_amount (média por hora)")
-    axes[5].set_xlabel("hora")
-    axes[5].set_ylabel("fiat_bet_amount_mean")
+    axes[4].set_ylabel("fiat_bet_amount_mean")
 
     fig.suptitle(f"user {user_id} — dia {day_of_year} (agregado por hora)", fontsize=14, y=1.02)
     plt.tight_layout()
@@ -598,21 +599,20 @@ def plot_user_hour_bets(
     tmp = tmp.sort_values("date")
     x = range(len(tmp))
 
-    fig, axes = plt.subplots(4, 1, figsize=(10, 8), sharex=True)
 
-    axes[0].plot(x, tmp["odds_adjusted"])
+    fig, axes = plt.subplots(2, 1, figsize=(10, 6))
+
+
+    axes[0].plot(x, tmp["odds_adjusted"], marker="o")
     axes[0].set_ylabel("odds_adjusted")
     axes[0].set_title(f"user {user_id} — dia {day_of_year}, hora {hour}")
 
-    axes[1].plot(x, tmp["fiat_bet_amount"])
-    axes[1].set_ylabel("fiat_bet_amount")
+        # axes[2].plot(x, tmp["bet_risk"])
+        # axes[2].set_ylabel("bet_risk")
 
-    axes[2].plot(x, tmp["bet_risk"])
-    axes[2].set_ylabel("bet_risk")
-
-    axes[3].plot(x, tmp["user_bet_amount_proportion"])
-    axes[3].set_ylabel("bet_prop")
-    axes[3].set_xlabel("índice da aposta (ordem no horário)")
+    axes[1].plot(x, tmp["user_bet_amount_proportion"], marker="o")
+    axes[1].set_ylabel("bet_prop")
+    axes[1].set_xlabel("índice da aposta (ordem no horário)")
 
     plt.tight_layout()
     plt.show()
