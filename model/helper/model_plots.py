@@ -352,7 +352,7 @@ def plot_cluster_feature_comparisons(
     features: list,
     window: str = "2d",          # "2d", "7d", "14d"
     stat: str = "mean",          # "mean" ou "std"
-    cluster_col: str = "cluster_label"
+    cluster_col: str = "cluster_label",
     save_path: str = None
 ):
 
