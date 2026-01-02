@@ -481,6 +481,8 @@ def plot_user_daily(
     features: list,
     date_col: str = "day_of_year",
     user_col: str = "user_id",
+    path_to_save: str = None,
+    threshold: float = None,
 ):
     tmp = df_daily[df_daily[user_col] == user_id].copy()
     if tmp.empty:
@@ -513,6 +515,8 @@ def plot_user_daily(
 
     fig.suptitle(f"Histórico diário — usuário {user_id}", fontsize=14, y=1.02)
     plt.tight_layout()
+    if path_to_save:
+        plt.savefig(path_to_save)
     plt.show()
 
 def plot_user_day_hourly(
@@ -522,6 +526,7 @@ def plot_user_day_hourly(
     user_col: str = "user_id",
     day_col: str = "day_of_year",
     hour_col: str = "hour",
+    path_to_save: str = None,
 ):
     tmp = df[(df[user_col] == user_id) & (df[day_col] == day_of_year)].copy()
     if tmp.empty:
@@ -579,6 +584,8 @@ def plot_user_day_hourly(
 
     fig.suptitle(f"user {user_id} — dia {day_of_year} (agregado por hora)", fontsize=14, y=1.02)
     plt.tight_layout()
+    if path_to_save:
+        plt.savefig(path_to_save)
     plt.show()
 
 def plot_user_hour_bets(
@@ -589,6 +596,7 @@ def plot_user_hour_bets(
     user_col: str = "user_id",
     day_col: str = "day_of_year",
     hour_col: str = "hour",
+    path_to_save: str = None,
 ):
     tmp = df[
         (df[user_col] == user_id)
@@ -618,4 +626,6 @@ def plot_user_hour_bets(
     axes[1].set_xlabel("índice da aposta (ordem no horário)")
 
     plt.tight_layout()
+    if path_to_save:
+        plt.savefig(path_to_save)
     plt.show()
