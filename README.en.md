@@ -11,7 +11,7 @@ The project’s goal is to **identify behavioral deviations** in iGaming from hi
 
 The full text (in Portuguese) is available in `monografia.pdf`.
 
-## Abstract (from the monograph)
+## Abstract
 
 This work investigates the identification of behavioral deviations in the context of iGaming through unsupervised learning techniques, with the objective of analyzing gambler behavior over time and identifying anomalous patterns. Initially, gamblers are grouped according to behavioral characteristics, which enables the identification of a reference group considered more stable. Based on this group, autoencoders are trained to model expected behavior, using reconstruction error as a distance measure with respect to the observed pattern. This approach enables the daily analysis of individual behavior through the quantification of deviations relative to the target behavior. The results indicate that days with higher reconstruction error tend to exhibit more anomalous behavior, making it possible to employ a threshold to classify betting days. Although the results suggest that the proposed methodology is promising for the identification and monitoring of behavioral deviations, further validation is still required, particularly with respect to the relationship between the detected anomalies and problematic behaviors, as well as the definition and use of thresholds or methods for behavioral distinction.
 
@@ -117,8 +117,3 @@ Key limitations discussed in the monograph include:
 If you use this repository or the methodology described here, please cite the monograph:
 
 > HERKLOTZ, Matias Cornelsen. **Identificação de desvios comportamentais no iGaming por meio de aprendizado não supervisionado**. 2025. Monografia (Especialização em Inteligência Artificial) – Escola Politécnica, Universidade de São Paulo, São Paulo, 2025.
-
-## License
-
-This repository does not specify a license yet. If you want to make it fully reusable by third parties, consider adding a license (e.g., MIT/BSD-3-Clause for code and an appropriate license for the monograph text, if desired).
-
