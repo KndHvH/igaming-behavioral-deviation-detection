@@ -1,5 +1,7 @@
 # Identificação de desvios comportamentais no iGaming por meio de aprendizado não supervisionado
 
+**English version**: [`README.en.md`](README.en.md)
+
 Este repositório acompanha a monografia de especialização em Inteligência Artificial (PECE/Poli-USP) de **Matias Cornelsen Herklotz** (2025), orientada pela **Profa. Dra. Larissa Driemeier**.
 
 O objetivo do trabalho é **identificar desvios comportamentais** no contexto de iGaming a partir de dados históricos de apostas, usando **técnicas não supervisionadas**. A proposta combina:
